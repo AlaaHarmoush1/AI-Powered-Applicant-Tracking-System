@@ -15,7 +15,7 @@ const ResumeCard = ({ resume }: { resume: Resume }) => {
                 </h3>
             </div>
             <div className="flex-shrink-0">
-                <ScoreCircle score={resume.feedback.overallScore} />
+                <ScoreCircle score={resume.feedback.overall_rating} />
             </div>
         </div>
         <div className="gradient-border animate-in fade-in duration-1000">

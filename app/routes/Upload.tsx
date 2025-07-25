@@ -65,7 +65,7 @@ const Upload: () => JSX.Element = () => {
 
     const feedback = await ai.feedback(
         uploadedFile.path,
-        prepareInstructions({jobTitle, jobDescription, AIResponseFormat: "text"})
+        prepareInstructions({jobTitle, jobDescription})
     )
 
      if (!feedback) return setStatusText('Error: Failed to analyze resume');
@@ -77,8 +77,10 @@ const Upload: () => JSX.Element = () => {
         data.feedback = JSON.parse(feedbackText);
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Analysis complete, redirecting...');
-        console.log(data);
-        // navigate(`/resume/${uuid}`);
+        // console.log(data);
+        console.log(data.feedback);
+        console.log(feedbackText);
+        navigate(`/resume/${uuid}`);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

@@ -6,8 +6,8 @@ export const resumes: Resume[] = [
     imagePath: "/images/resume_01.png",
     resumePath: "/resumes/resume-1.pdf",
     feedback: {
-      overallScore: 85,
-      ATS: {
+      overall_rating: 85,
+      ats_compatibility: {
         score: 90,
         tips: [],
       },
@@ -36,8 +36,8 @@ export const resumes: Resume[] = [
     imagePath: "/images/resume_02.png",
     resumePath: "/resumes/resume-2.pdf",
     feedback: {
-      overallScore: 55,
-      ATS: {
+      overall_rating: 55,
+      ats_compatibility: {
         score: 90,
         tips: [],
       },
@@ -66,8 +66,8 @@ export const resumes: Resume[] = [
     imagePath: "/images/resume_03.png",
     resumePath: "/resumes/resume-3.pdf",
     feedback: {
-      overallScore: 75,
-      ATS: {
+      overall_rating: 75,
+      ats_compatibility: {
         score: 90,
         tips: [],
       },
@@ -93,9 +93,9 @@ export const resumes: Resume[] = [
 
 export const AIResponseFormat = `
       interface Feedback {
-      overallScore: number; //max 100
-      ATS: {
-        score: number; //rate based on ATS suitability
+      overall_rating: number; //max 100
+      ats_compatibility: {
+        score: number; //rate based on ats_compatibility suitability
         tips: {
           type: "good" | "improve";
           tip: string; //give 3-4 tips
@@ -138,13 +138,11 @@ export const AIResponseFormat = `
 export const prepareInstructions = ({
   jobTitle,
   jobDescription,
-  AIResponseFormat,
 }: {
   jobTitle: string;
   jobDescription: string;
-  AIResponseFormat: string;
 }) =>
-  `You are an expert in ATS (Applicant Tracking System) and resume analysis.
+  `You are an expert in ats_compatibility (Applicant Tracking System) and resume analysis.
   Please analyze and rate this resume and suggest how to improve it.
   The rating can be low if the resume is bad.
   Be thorough and detailed. Don't be afraid to point out any mistakes or areas for improvement.
